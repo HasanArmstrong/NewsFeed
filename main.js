@@ -25,8 +25,6 @@ async function fetchNews(){
     // let spiegel = news.filter(a => a.source.id == "spiegel-de");
 
  
-
- 
     // sourceName= data.articles.name;
 
     render();
@@ -37,8 +35,8 @@ async function fetchNews(){
 
 function render() {
     let numberOfArticles = news.length;
-    document.getElementById("totalNumberOfStories").innerHTML= `<b>Total Results:</b> ${resulted}`;
-    document.getElementById("numberOfStoriesShowing").innerHTML= `<b>Number of Stories Displayed:</b> ${numberOfArticles}`;
+    document.getElementById("totalNumberOfStories").innerHTML= `<b class="total-results">Total Results:</b> ${resulted}`;
+    document.getElementById("numberOfStoriesShowing").innerHTML= `<b class="number-stories">Stories Displayed:</b> ${numberOfArticles}`;
 
     let articles;
 
@@ -49,18 +47,20 @@ function render() {
     }
 
     document.getElementById("news-stories").innerHTML= articles.map( article => `
+    <div class="news-item">
     <div class="row">
     
             <h3>${article.title}</h3>
             
         </div>
             <div class="custom-text">
-            <p>${article.source.name}</p>
+            <p><i>${article.source.name}</i></p>
             <div class="row">
             <img src="${article.urlToImage}">
             <p class="desc">${article.description}</p>
             </div>
             <p>${moment(article.publishedAt).fromNow()}</p>
+        </div>
         </div>`).join(" ")
 
     document.getElementById("load-more").innerHTML=`<p style="text-align:center" onclick="incrementPageNumber()">Load More</a></p>`

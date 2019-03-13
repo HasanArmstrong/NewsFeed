@@ -4,6 +4,8 @@ Created with love by: Hasan Armstrong
 
 Build a news feed using Google news API
 
+View the site here https://reverent-nightingale-66e217.netlify.com/
+
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories.
